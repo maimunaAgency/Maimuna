@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details - call boy registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .collapsible {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 10px;
+            display: none;
+            overflow: hidden;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+
+        .highlight-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Hidden initially */
+            margin-top: 20px;
+        }
+
+        .highlight-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Male Escort/ কল বয় রেজিস্ট্রেশন বিস্তারিত</h1>
+    </header>
+    <main>
+        <section>
+            <button class="collapsible"> নির্দেশনা ও গোপনীয়তা পলিসি ▶️</button>
+            <div class="content">
+                <p>
+     ▶এ বিষয়ে সঠিক ধারণা ও যোগ্যতা 
+             থাকা লাগবে । ক্লায়েন্টকে 
+             সেটিসফাইড করার দক্ষতা থাকা 
+           লাগবে। <br>
+    ▶পূর্বের অভিজ্ঞতা রয়েছে ও 
+            প্রফেশনালদের
+           অগ্রাধিকার দেওয়া হবে ।<br>
+    ▶ক্লায়েন্ট আমরা প্রোভাইড করবো । 
+           ফেসবুক অ্যাড ম্যানেজার ও গুগল        
+           এডসেন্স এর মাধ্যমে আমরা ক্লায়েন্ট 
+            খুঁজে থাকি <br>
+    ▶নারায়ণগঞ্জ, ঢাকা, গাজীপুর, চট্টগ্রাম 
+         এর মধ্য  সার্ভিস দিতে পারবেন। এর 
+          বাহিরে হবে না। <br>
+    ▶ নতুন করে অল্প কয়েকজন কেই এই
+           সার্ভিস প্রদানের সুযোগ দেওয়া হবে।<br> 
+   ▶নতুন যারা আসবে সকলের জন্য 
+           প্রাইভেট টেলিগ্রাম গ্রুপে কোর্স করানো 
+           হবে । যেখানে ভিডিও কন্টেন্ট + লাইভ 
+           টিউটোরিয়ালের  মাধ্যমে ট্রেইনিং 
+           ব্যবস্থা থাকবে । <br>
+            ( রেজিস্ট্রেশনের সাথে কোর্স একদম 
+               ফ্রি)<br>
+     ▶দুই এক দিনের জন্য নয়, যারা লং টাইম
+           আমাদের হয়ে সার্ভিস প্রোভাইড করতে 
+           পারবে তাদেকেই নেওয়া হবে । </p>
+            </div>
+
+            <button class="collapsible">সুবিধাসমুহ ▶️</button>
+            <div class="content">
+                <p>   ▶ফ্রি কোর্সের টেইনিং এর মাধ্যমে সঠিক
+            গাইড লাইন ও  আপনার দক্ষতা 
+            বাড়িয়ে নিতে  পারবেন<br>
+     ▶পরিচয় গোপন রেখে সার্ভিস প্রোভাইড 
+          করার সুযোগ থাকছে। <br>
+  ▶আপনার সম্পূর্ণ নিরাপত্তা ও 
+       সেফটি দায়িত্ব আমাদের <br>
+  ▶সার্ভিস প্রদানের মাধ্যমে বাড়তি আয় 
+      করতে পারবেন। যার ২০% আমাদের
+      সাথে শেয়ার করতে হবে ।<br>
+</p>
+            </div>
+
+            <button class="collapsible">Contact Us</button>
+            <div class="content">
+                <p>You can reach us at telegram @zmaimuna </p>
+            </div>
+        </section>
+        
+        <button class="highlight-button" id="registerButton" onclick="openRegistrationLink()">রেজিস্ট্রেশন করুন</button>
+    </main>
+    <footer>
+        <p>&copy; 2023 Maimuna Zaman Agency. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle collapsible content
+        const collapsibles = document.getElementsByClassName("collapsible");
+        for (let i = 0; i < collapsibles.length; i++) {
+            collapsibles[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                    document.getElementById('registerButton').style.display = "block"; // Show the registration button when any section is expanded
+                }
+            });
+        }
+
+        function openRegistrationLink() {
+            window.open('https://forms.gle/8z5XpzjxeMqRZLsL6',  '_blank'); // Replace with your actual registratin link
+        }
+    </script>
+</body>
+</html>
