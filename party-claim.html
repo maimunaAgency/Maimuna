@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0dede;
+        }
+        .container {
+            background-color: #f4f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(6, 5, 5, 0.1);
+            max-width: 410px;
+            margin: 20px auto;
+            transition: box-shadow 0.3s ease;
+        }
+        .container:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: hsl(333, 86%, 54%);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: hsl(333, 87%, 36%);
+        }
+        .membership-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px; /* Space between options */
+        }
+        .membership-option {
+            background-color: #feadcb;
+            border-radius: 10px;
+            padding: 15px; /* Reduced padding for smaller buttons */
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            width: 80%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .membership-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .selected {
+            border: 2px solid #ff6f61;
+            background-color: #ffe5e0;
+        }
+        .payment-logo {
+            cursor: pointer;
+            margin: 10px;
+            width: 100px;
+            transition: transform 0.3s;
+        }
+        .payment-logo:hover {
+            transform: scale(1.1);
+        }
+        .payment-number-box {
+            border: 1px solid hsl(333, 84%, 53%);
+            border-radius: 5px;
+            padding: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #efdce2;
+            font-size: 18px;
+            color: #333;
+        }
+        .copy-button {
+            background-color: hsl(333, 87%, 36%);
+            border: none;
+            color: white;
+            border-radius: 3px;
+            padding: 3px 5px; /* Smaller padding for the copy button */
+            font-size: 12px; /* Smaller font size for the copy button */
+            cursor: pointer;
+            margin-left: 10px; /* Space between payment number and copy button */
+            width: 60px; /* Set a small width for the copy button */
+            vertical-align: top; /* Aligns the button with the top of the payment number box */
+        }
+        .loading {
+            display: none;
+            margin-top: 15px;
+            font-size: 20px;
+            color: #eb0b0b;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #successMessage {
+            margin-top: 18px;
+            font-size: 22px;
+            color: rgb(197, 7, 58);
+            display: none;
+        }
+        .name-input-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="nameContainer">
+    <h1>Enter Your Name</h1>
+    <div class="name-input-container">
+        <input type="text" id="userName" placeholder="Your Name" required>
+        <button id="submitNameButton">Submit</button>
+    </div>
+</div>
+
+<div class="container hidden" id="membershipContainer">
+    <h2>Orgy Party 7.0 <br>Select Your Membership</h2>
+
+    <div class="membership-options" id="membershipOptions">
+        <div class="membership-option" data-value="Silver" data-price="2040">
+            <strong>Silver Membership</strong><br>
+            <strong>2040 Taka</strong>
+        </div>
+        <div class="membership-option" data-value="Gold" data-price="3500">
+            <strong>Gold Membership</strong><br>
+            <strong>3500 Taka</strong>
+        </div>
+        <div class="membership-option" data-value="Diamond" data-price="5000">
+            <strong>Diamond Membership</strong><br>
+            <strong>5000 Taka</strong>
+        </div>
+        <div class="membership-option" data-value="Platinum" data-price="10000">
+            <strong>Platinum Membership</strong><br>
+            <strong>10,000 Taka</strong>
+        </div>
+        <div class="membership-option" data-value="VIP" data-price="15000">
+            <strong>VIP Membership</strong><br>
+            <strong>15,000 Taka</strong>
+        </div>
+    </div>
+    <button id="submitMembershipButton">Submit</button>
+</div>
+
+<div class="container hidden" id="paymentContainer">
+    <h2>Choose Your Payment Method</h2>
+    <div id="paymentOptions">
+        <img src="bkash.svg" alt="bKash" class="payment-logo" data-method="bkash" id="bkashLogo">
+        <img src="nagad.svg" alt="Nagad" class="payment-logo" data-method="nagad" id="nagadLogo">
+    </div>
+    <div id="paymentDetails" class="hidden">
+        <div class="payment-number-box" id="paymentNumber"></div>
+        <button class="copy-button" id="copyButton">Copy</button><br><br>
+        <input type="text" id="transactionId" placeholder="Enter Transaction ID" required>
+        <button id="completePaymentButton">Complete Payment</button>
+        <div class="loading" id="loading">
+            <div class="loader"></div>
+            <span>Processing...</span>
+        </div>
+        <div id="successMessage"></div>
+    </div>
+</div>
+
+<script>
+    const validNames = [
+        "Mr. Maruf", "Ami Vut", "S Siam", "Redox", "Raisul Ahmed", "2094 Sadman 23", 
+        "Md Azim", "Dabir Rahman", "Md Bipul Hossen", "Khandakar Rahman", "Emran", 
+        "Shanto", "Tahir Emran", "G Hasan", "Utpaul Sarkar", "9T3", "See the mirror", 
+        "Mokter Hossain", "Jahid hossain", "Enayet", "Nayem Mia", "NILOY", 
+        "Md. Lutfar Rahman", "MD SAMSUL ISLAM", "M Hasan"
+    ];
+
+    document.getElementById('submitNameButton').addEventListener('click', function() {
+        const userName = document.getElementById('userName').value.trim();
+
+        if (validNames.includes(userName)) {
+            document.getElementById('nameContainer').classList.add('hidden');
+            document.getElementById('membershipContainer').classList.remove('hidden');
+        } else {
+            alert('Invalid name, please enter a valid name.');
+        }
+    });
+
+    const membershipOptions = document.querySelectorAll('.membership-option');
+    const paymentContainer = document.getElementById('paymentContainer');
+    const paymentNumberBox = document.getElementById('paymentNumber');
+    const paymentDetails = document.getElementById('paymentDetails');
+
+    membershipOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            membershipOptions.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    document.getElementById('submitMembershipButton').addEventListener('click', function() {
+        const selectedOption = document.querySelector('.membership-option.selected');
+        if (selectedOption) {
+            paymentContainer.classList.remove('hidden');
+            const membershipPrice = selectedOption.dataset.price;
+            const membershipType = selectedOption.dataset.value;
+            alert(`You selected ${membershipType} Membership for ${membershipPrice} Taka.`);
+        } else {
+            alert('Please select a membership option.');
+        }
+    });
+
+    document.querySelectorAll('.payment-logo').forEach(function(logo) {
+        logo.addEventListener('click', function() {
+            const method = this.dataset.method;
+            const paymentNumber = method === 'bkash' ? '01968257681' : '01767770174';
+            paymentNumberBox.textContent = 'Send Money To: ' + paymentNumber;
+
+            document.querySelectorAll('.payment-logo').forEach(function(otherLogo) {
+                if (otherLogo !== logo) {
+                    otherLogo.style.display = 'none';
+                }
+            });
+
+            paymentDetails.classList.remove('hidden');
+            document.getElementById('copyButton').onclick = function() {
+                navigator.clipboard.writeText(paymentNumber);
+                alert('Payment number copied: ' + paymentNumber);
+            };
+        });
+    });
+
+    document.getElementById('completePaymentButton').addEventListener('click', function() {
+        const loading = document.getElementById('loading');
+        const successMessage = document.getElementById('successMessage');
+        loading.style.display = 'flex';
+        successMessage.style.display = 'none';
+
+        setTimeout(() => {
+            loading.style.display = 'none';
+            successMessage.textContent = 'Wrong Transaction Number or Payment didnot received';
+            successMessage.style.display = 'block';
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
