@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Options - Maimuna Zaman Agency</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            min-height: 90vh; /* Full height */
+            overflow-y: auto; /* Allow vertical scrolling */
+            background: linear-gradient(135deg, #edf2ed, #f39c12); /* Dynamic gradient background */
+            animation: gradient 15s ease infinite; /* Background animation */
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .membership-container {
+            text-align: center;
+            background: rgba(246, 244, 244, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            margin-top: 20px; /* Space from the top */
+            opacity: 0;
+            animation: slideIn 0.8s forwards; /* Entrance animation */
+            width: 98%; /* Full width for responsiveness */
+            max-width: 1000px; /* Maximum width */
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .membership-card {
+            border-radius: 15px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: white;
+            margin: 10px; /* Space between cards */
+            padding: 10px;
+            position: relative;
+        }
+
+        .membership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-home {
+            position: fixed; /* Fixing the button position */
+            top: 2px; /* Distance from the top */
+            left: 10px; /* Distance from the left */
+            background-color: transparent; /* Transparent background */
+            border: none; /* No border */
+            z-index: 1000; /* Ensure it appears above other elements */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 24px; /* Icon size */
+            color: white; /* Icon color */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .btn-home:hover {
+            color: #ffc107; /* Change color on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .basic-card {
+            background: linear-gradient(to bottom right, #f61f07, #490a13);
+        }
+
+        .premium-card {
+            background: linear-gradient(to bottom right, #0175f8, #022347);
+            box-shadow: 0 8px 40px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn-select, .btn-advantages {
+            width: 100%;
+            margin-top: 10px;
+            border: none;
+            border-radius: 25px; /* Soft edges */
+            padding: 10px; /* Increased touch area */
+            font-weight: bold; /* Enhanced visibility */
+            transition: all 0.3s ease; /* Smooth transition effect */
+        }
+
+        .btn-select {
+            background-color: #dd033a; /* Green for selection */
+            color: white;
+        }
+
+        .btn-select:hover {
+            background-color: #f83f11; /* Darker green on hover */
+            transform: translateY(-2px);
+        }
+
+        .btn-advantages {
+            background-color: #6202cf; /* Blue for advantages */
+            color: white;
+        }
+
+        .btn-advantages:hover {
+            background-color: #e4630e; /* Darker blue on hover */
+            transform: translateY(-2px);
+        }
+
+        .advantages {
+            margin-top: 10px;
+            text-align: left; /* Align text for clarity */
+        }
+
+        .advantages h4 {
+            margin-bottom: 5px;
+            font-weight: bold; /* Emphasized advantage title */
+        }
+
+        .advantages ul {
+            padding-left: 20px; /* Indentation for list */
+        }
+
+        .logo {
+            width: 80px; /* Fixed logo width */
+            margin-bottom: 15px; /* Space below logos */
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn btn-home" onclick="goHome()"><i class="fas fa-home"></i></button> <!-- Home Icon Button -->
+
+<div class="membership-container">
+    <h2 id="greeting"></h2> <!-- Greeting message with user name -->
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card membership-card basic-card">
+                <div class="card-body text-center">
+                    <img src="silver.svg" alt="Basic Membership Logo" class="logo"> <!-- Replace with your Basic logo URL -->
+                    <h5 class="card-title">Regular Membership</h5>
+                    <h6 class="card-subtitle mb-2">4999 Taka/lifetime</h6>
+                   
+                    <button class="btn btn-select" onclick="selectMembershipf('basic', 'basic-payment.html')">Select</button>
+                    <button class="btn btn-advantages" onclick="toggleAdvantages('basic')">View Advantages</button>
+                    <div class="advantages" id="advantages-basic" style="display: none;">
+                        <h4>Benefits</h4>
+                        <ul>
+                            <li> ইনকল+ আউটকল সুবিধা।  </li>
+                            <li>আমাদের সার্ভিস পয়েন্টে 24/7 সার্ভিস নেবার এক্সেস ( লাক্সারিয়াস AC রুম)- রুম liচার্জ প্রযোজ্য।</li>
+                            <li> প্রোফেশনাল+ নন প্রোফেশনাল হিউজ কালেকশন।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card membership-card premium-card">
+                <div class="card-body text-center">
+                    <img src="diamond.svg" alt="Premium Membership Logo" class="logo"> <!-- Replace with your Premium logo URL -->
+                    <h5 class="card-title">Premium Membership</h5>
+                    <h6 class="card-subtitle mb-2">7999 Taka/lifetime</h6>
+                    <p class="card-text">Ideal for frequent users.</p>
+                    <button class="btn btn-select" onclick="selectMembership('premium', 'premium-payment.html')">Select</button>
+                    <button class="btn btn-advantages" onclick="toggleAdvantages('premium')">View Advantages</button>
+                    <div class="advantages" id="advantages-premium" style="display: none;">
+                        <h4>সুবিধাসমুহ</h4>
+                        <ul>
+                            <li> আমাদের সার্ভিস পয়েন্টে 24/7 সার্ভিস নেবার ফ্রি এক্সেস ( লাক্সারিয়াস AC রুম)।</li>
+                            <li> ইনকল+ আউটকল সুবিধা।</li>
+                            <li>  প্রোফেশনাল+ নন প্রোফেশনাল হিউজ কালেকশন। </li>
+                            <li> এক্টর/মডেল/সেলিব্রেটি কলেকশন রয়েছে ( টপ সিক্রেট)।</li>
+                            <li> প্রতি সার্ভিসে থাকছে সর্বোচ্চ ৩০% পর্যন্ত ডিসকাউন্ট।</li>
+                         
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goHome() {
+        // Redirect to the home page
+        window.location.href = 'index.html'; // Change this to your home page URL
+    }
+
+    function selectMembershipf(type, paymentLink) {
+        // Redirect to the corresponding payment page for each membership type
+        window.location.href = "https://shop.bkash.com/onlineshoppingbd01940449006/pay/bdt4999/45VGmT" ;
+    }
+    function selectMembership(type, paymentLink) {
+        // Redirect to the corresponding payment page for each membership type
+        window.location.href = "https://shop.bkash.com/onlineshoppingbd01940449006/pay/bdt7999/5M7AiW";
+    }
+
+    function toggleAdvantages(type) {
+        const advantages = document.getElementById(`advantages-${type}`);
+        if (advantages.style.display === "none" || advantages.style.display === "") {
+            advantages.style.display = "block"; // Display advantages
+        } else {
+            advantages.style.display = "none"; // Hide advantages
+        }
+    }
+
+    // Function to get the username from the URL
+    function getUserName() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('name');
+    }
+
+    // Set the greeting message
+    document.addEventListener('DOMContentLoaded', function() {
+        const userName = getUserName();
+        const greetingElement = document.getElementById('greeting');
+        if (userName) {
+            greetingElement.textContent = `Hello ${userName}, select your membership`;
+        } else {
+            greetingElement.textContent = 'Hello, select your membership'; // Fallback message
+        }
+    });
+
+    // Fade in effect for the body
+    document.body.style.opacity = 1;
+
+    // Add animation effect for the membership container
+    document.querySelector('.membership-container').style.opacity = 1;
+</script>
+
+</body>
+</html>
