@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maimuna Zaman Agency - User Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('images.jpeg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            color: #d53131;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(29, 12, 12, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(205, 200, 200, 0.3);
+        }
+        .alert {
+            display: none; /* Initially hidden */
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-family: 'Arial Black', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .btn-primary {
+            background-color: #cf222b;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #610606;
+        }
+        .btn-secondary {
+            background-color: #f31228;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #61070f;
+        }
+    </style>
+</head>
+<body>
+
+    <b>আপনার মেম্বারশিপ কার্ড ও আইডি সংরক্ষণ করতে রেজিস্ট্রেশন বাধ্যতামূলক </b>
+
+<div class="login-container">
+    <div class="logo">
+        <h2>Maimuna Zaman Agency</h2>
+    </div>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">Name</label>
+            <input type="text" id="username" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="pin">Pin Code</label>
+            <input type="password" id="pin" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+    
+    <hr>
+    
+    <h5 class="text-center">------or------</h5>
+    <div class="form-group">
+        <label for="setUsername">Set Name</label>
+        <input type="text" id="setUsername" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="setPin">Set Pin Code</label>
+        <input type="password" id="setPin" class="form-control" required>
+    </div>
+    <button id="setCredentials" class="btn btn-secondary btn-block">Complete Registration</button>
+    
+    <div class="alert alert-success mt-3" id="successAlert">Credentials set successfully!</div>
+    <div class="alert alert-danger mt-3" id="errorAlert">Invalid name or pin code. Please try again.</div>
+</div>
+
+<script>
+    // Function to set user credentials in local storage
+    document.getElementById('setCredentials').addEventListener('click', function() {
+        const setUsername = document.getElementById('setUsername').value;
+        const setPin = document.getElementById('setPin').value;
+
+        if (setUsername && setPin) {
+            localStorage.setItem('username', setUsername);
+            localStorage.setItem('pin', setPin);
+            document.getElementById('successAlert').style.display = 'block'; // Show success alert
+            document.getElementById('errorAlert').style.display = 'none'; // Hide error alert
+            document.getElementById('setUsername').value = '';
+            document.getElementById('setPin').value = '';
+        }
+    });
+
+    // Function to handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const pin = document.getElementById('pin').value;
+
+        const storedUsername = localStorage.getItem('username');
+        const storedPin = localStorage.getItem('pin');
+
+        if (username === storedUsername && pin === storedPin) {
+            // Redirect to membership selection page
+            window.location.href = "welcome.html"; // Change this to your membership page URL
+        } else {
+            document.getElementById('errorAlert').style.display = 'block'; // Show error alert
+            document.getElementById('successAlert').style.display = 'none'; // Hide success alert
+        }
+        function handleLogin(event) {
+        event.preventDefault(); // Prevent form submission
+        const username = document.getElementById('username').value;
+        // Redirect to membership page with username as a parameter
+        window.location.href = `membership.html?name=${encodeURIComponent(username)}`;
+    }
+    });
+</script>
+
+</body>
+</html>

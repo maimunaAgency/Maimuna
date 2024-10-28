@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Maimuna Zaman Agency</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #4a90e2, #f39c12); /* Gradient background */
+            animation: gradient 15s ease infinite; /* Gradient animation */
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .welcome-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideIn 0.8s forwards; /* Slide-in animation */
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e60e0e;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .btn-primary {
+            background-color: #e62037;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #357ab8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="welcome-container">
+    <h1>Welcome, <span id="userName"></span>!</h1>
+    <p>Thank you for logging in to Maimuna Zaman Agency. আপনার সার্ভিস হোক সর্বাধিক নিরাপদ ও সুরক্ষিত। এন্টারটেনার লিস্ট দেখতে ও সার্ভিস নিতে এখনই মেম্বারশিপ নিন  </p>
+    <a href="membership.html" class="btn btn-primary">মেম্বারশিপ নিন</a>
+</div>
+
+<script>
+    // Fade in effect for the body
+    document.body.style.opacity = 1;
+
+    // Retrieve the username from local storage
+    const storedUsername = localStorage.getItem('username');
+    document.getElementById('userName').textContent = storedUsername || 'User';
+</script>
+
+</body>
+</html>
