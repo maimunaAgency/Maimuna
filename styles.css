@@ -8,7 +8,7 @@ body {
 header {
     position: relative;
     background: url('maimuna.jpg') no-repeat center center/cover;
-    color: rgb(236, 236, 15);
+    color: rgb(249, 247, 247);
     padding: 20px 0;
     overflow: hidden;
     animation: fadeIn 3s ease-in-out forwards;
@@ -48,7 +48,7 @@ header .container {
 
 header h1 {
     margin: 0;
-    font-size: 2.em;
+    font-size: 2em;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     animation: glow 1.5s ease-in-out infinite alternate;
 }
@@ -77,19 +77,19 @@ nav ul li {
 nav ul li a {
     color: rgb(249, 249, 249);
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 0.9em;
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
     position: relative;
     z-index: 2; /* Ensure links are on top */
 }
 
 nav ul li a:hover {
-    color: #dbfa2b; /* Highlight color */
+    color: #ef0d7e; /* Highlight color */
     text-shadow: 0 0 10px #ccf517;
 }
 
 .notice {
-    background-color: #f3fb11;
+    background-color: #d20f29;
     padding: 1px 0;
     text-align: center;
     position: relative;
@@ -100,7 +100,7 @@ nav ul li a:hover {
     display: inline-block;
     white-space: nowrap;
     animation: marquee 15s linear infinite;
-    color: rgb(216, 6, 6);
+    color: rgb(239, 239, 236);
 }
 
 @keyframes marquee {
