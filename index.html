@@ -460,6 +460,11 @@ function submitReview() {
     newReview.className = 'review';
     newReview.innerHTML = '<strong>' + reviewerName + ':</strong><p>' + reviewText + '</p>';
     reviewContainer.appendChild(newReview);
+    
+    const reviews = JSON.parse(localStorage.getItem('reviews')) || []; // Get existing reviews
+    reviews.push({ name: reviewerName, text: reviewText }); // Add new review to the array
+    localStorage.setItem('reviews', JSON.stringify(reviews)); // Save updated reviews back to localStorage
+
 
    document.getElementById('reviewerName').value = ''; // Clear the name input
             document.getElementById('newReview').value = ''; // Clear the review input
