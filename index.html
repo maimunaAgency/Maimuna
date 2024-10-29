@@ -27,47 +27,47 @@
             background-color: #f9f9f9;
         }
         .cube-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    transition: all 0.4s ease;
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
 
-.cube {
-    cursor: pointer;
-    color: #fefefe;
-    border-color: #320808;
-    width: 120px;
-    height: 120px;
-    background-color: #f64d41; /* Bright base color */
-    border-radius: 10%; /* Make them bubble-shaped */
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    position: relative;
-    overflow: hidden;
-    order: 1;
-    box-shadow: 0 4px 20px rgba(36, 34, 34, 0.2); /* Add shadow for depth */
-    transition: all 0.4s ease, transform 0.3s ease; /* Smooth transition */
-}
+        .cube {
+            cursor: pointer;
+            color: #fefefe;
+            border-color: #320808;
+            width: 120px;
+            height: 120px;
+            background-color: #f64d41; /* Bright base color */
+            border-radius: 10%; /* Make them bubble-shaped */
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            order: 1;
+            box-shadow: 0 4px 20px rgba(36, 34, 34, 0.2); /* Add shadow for depth */
+            transition: all 0.4s ease, transform 0.3s ease; /* Smooth transition */
+        }
 
-.cube:hover {
-    background-color: #610a1a; /* Lighter highlight color on hover */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
-    transform: scale(1.1); /* Slightly enlarge on hover */
-}
+        .cube:hover {
+            background-color: #610a1a; /* Lighter highlight color on hover */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
 
-.cube img {
-    max-width: 50%;
-    max-height: 50%;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+        .cube img {
+            max-width: 50%;
+            max-height: 50%;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
         .active-cube {
             width: 100%;
@@ -78,7 +78,6 @@
             text-align: center;
             transition: all 0.4s ease;
             display: flex;
-            
             justify-content: center;
             flex-direction: column;
             order: 0;
@@ -135,326 +134,336 @@
             height: 80px;
         }
 
-        .submit-review {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+.submit-review {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .submit-review:hover {
-            background-color: #0056b3;
-        }
+.submit-review:hover {
+    background-color: #0056b3;
+}
 
-        .membership-code-input {
-            margin-bottom: 15px;
-        }
+.membership-code-input {
+    margin-bottom: 15px;
+}
 
-        .verify-code {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+.verify-code {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .verify-code:hover {
-            background-color: #218838;
-        }
+.verify-code:hover {
+    background-color: #218838;
+}
 
-        .contact-button {
-            display: none;
-            background-color: #FFC107;
-            color: #000;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: bold;
-            margin-top: 10px;
-        }
+.contact-button {
+    display: none;
+    background-color: #FFC107;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
-        .contact-button:hover {
-            background-color: #830921;
-        }
+.contact-button:hover {
+    background-color: #830921;
+}
 
-        .service-requirement {
-            font-size: 12px;
-            color: #4d4c4c;
-            margin-top: 10px;
-        }
+.service-requirement {
+    font-size: 12px;
+    color: #4d4c4c;
+    margin-top: 10px;
+}
 
-        .header-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
-            position: relative;
-            height: 70px; /* Reduced height for the header */
-            padding-bottom: 10px; /* Add padding to ensure content is not touching the bottom */
-        }
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    height: 70px; /* Reduced height for the header */
+    padding-bottom: 10px; /* Add padding to ensure content is not touching the bottom */
+}
 
-        .intro-container {
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
-            margin-top: -10px;
-        }
+.intro-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: -10px;
+}
 
-        .intro-text {
-            font-size: 12px;
-            color: #4adb0c;
-            text-align: right; /* Align text to the right */
-            animation: highlight 8s ease-in-out infinite, write 3s steps(40) 1s forwards;
-            white-space: nowrap;
-            overflow: hidden;
-            position: relative;
-        }
+.intro-text {
+    font-size: 12px;
+    color: #4adb0c;
+    text-align: right; /* Align text to the right */
+    animation: highlight 8s ease-in-out infinite, write 3s steps(40) 1s forwards;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+}
 
-        .verified-icon {
-            width: 29px;
-            height: 29px;
-            margin-left: 5px;
-            vertical-align: middle;
-            animation: popIn 2s ease-out forwards;
-            display: inline-block;
-        }
+.verified-icon {
+    width: 29px;
+    height: 29px;
+    margin-left: 5px;
+    vertical-align: middle;
+    animation: popIn 2s ease-out forwards;
+    display: inline-block;
+}
 
-        @keyframes popIn {
-            from { transform: scale(0); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+@keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
-        @keyframes highlight {
-            0%, 100% { background-color: transparent; }
-            50% { background-color: rgba(239, 238, 229, 0.3); }
-        }
+@keyframes highlight {
+    0%, 100% { background-color: transparent; }
+    50% { background-color: rgba(239, 238, 229, 0.3); }
+}
 
-        @keyframes write {
-            from { width: 0; }
-            to { width: 100%; }
-        }
+@keyframes write {
+    from { width: 0; }
+    to { width: 100%; }
+}
 
-        .telegram-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            background-color: #0088cc;
-            padding: 10px;
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+.telegram-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #0088cc;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .telegram-container:hover {
-            background-color: #00aaff;
-        }
+.telegram-container:hover {
+    background-color: #00aaff;
+}
 
-        .telegram-icon {
-            width: 30px;
-            height: 30px;
-            background-image: url('path/to/telegram-icon.png'); /* Replace with your Telegram icon path */
-            background-size: cover;
-            background-repeat: no-repeat;
-            margin-right: 10px;
-        }
+.telegram-icon {
+    width: 30px;
+    height: 30px;
+    background-image: url('telegram.svg'); /* Replace with your Telegram icon path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
 
-        .telegram-text {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-        }
-    </style>
+.telegram-text {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="header-container">
-                <h1>Maimuna Zaman Agency</h1>
-                <div class="intro-container">
-                    <p class="intro-text"> আপনার সার্ভিস হোক অধিক সুরক্ষিত ও গোপনীয়
-                        <img src="verified.svg" alt="Verified" class="verified-icon">
-                    </p>
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li> <a href="real-service.html"><img src="service.svg">রিয়াল সার্ভিস</a></li>
-                    <li><a href="cam-service.html"><img src="cam.svg">ক্যাম সার্ভিস</a></li>
-                    <li><a href="orgy.html"><img src="party.svg">Orgy Party</a></li>
-                    <li><a href="login.html"><img src="membership.svg">মেম্বারশিপ</a></li>
-                </ul>
-            </nav>
+<header>
+<div class="overlay"></div>
+<div class="container">
+    <div class="header-container">
+        <h1>Maimuna Zaman Agency</h1>
+        <div class="intro-container">
+            <p class="intro-text"> সর্বাধিক নিরাপদ ও মানসম্পন্ন সার্ভিস দিতে আমরা প্রতিশ্রুতিবদ্ধ
+                <img src="verified.svg" alt="Verified" class="verified-icon">
+            </p>
         </div>
-    </header>
-
-    <div class="notice">
-        <p>আমাদের সকল ধরনের সার্ভিস চালু রয়েছে। রিয়াল সার্ভিস নিতে অবশ্যই মেম্বারশিপ নিয়ে আমাদের টেলিগ্রাম প্রাইভেট গ্রুপে অ্যাড হতে হবে।</p>
     </div>
+    <nav>
+        <ul>
+            <li> <a href="real-service.html"><img src="service.svg">রিয়াল সার্ভিস</a></li>
+          
+            <li><a href="orgy.html"><img src="party.svg">Orgy Party</a></li>
+          
+             <li><a href="login.html"><img src="cam.svg">Login/signup</a></li>
+            <li><a href="login.html"><img src="membership.svg">মেম্বারশিপ</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
 
-    <section id="portfolio">
-        <h2 class="section-title animated-text">Our Services</h2>
+<div class="notice">
+<p>আমাদের সকল ধরনের সার্ভিস চালু রয়েছে। রিয়াল সার্ভিস নিতে অবশ্যই মেম্বারশিপ নিয়ে আমাদের টেলিগ্রাম প্রাইভেট গ্রুপে অ্যাড হতে হবে।</p>
+</div>
+
+<section id="portfolio">
+<h2 class="section-title animated-text">Our Services</h2>
+
+<div class="cube-container">
+    <div class="cube" onclick="toggleDescription('serviceDetails', this)">
+        <img src="service3.svg" alt="Service Logo"><br>
+        সার্ভিস বিস্তারিত
+    </div>
+    <div class="cube" onclick="toggleDescription('safety', this)">
+        <img src="security.svg" alt="Safety Logo"><br><br><br>
+        সিকিউরিটি ও প্রাইভেসি
+    </div>
+    <div class="cube" onclick="toggleDescription('area', this)">
+        <img src="location.svg" alt="Area Logo"><br>
+        সার্ভিস পয়েন্ট
+    </div>
+    <div class="cube" onclick="toggleDescription('reviews', this)">
+        <img src="review.svg" alt="Reviews Logo"><br><br><br>
+        সার্ভিস রিভিউ
+    </div>
+</div>
+
+<div id="serviceDetails" class="service-description">
+    <p>
+       <b>আমাদের সার্ভিস বিস্তারিত :</b>  <br>
+       <li>আমরাই বাংলাদেশের প্রথম অনলাইন ও অফলাইন ভিত্তিক অফিসিয়ালি দেশব্যাপী রিয়েল সার্ভিস, ক্যাম সার্ভিস, লিভ টুগেদার পার্টনার, মেক আউট পার্টনার প্রোভাইড করে থাকি ।</li>  <br>
+        <li>আমাদের সারা দেশব্যাপী এজেন্ট রয়েছে যারা প্রতিনিয়ত আপনার সার্ভিস কে সহজ থেকে সহজতর করতে সকল রকম ব্যবস্থা করে যাচ্ছে । </li><br>
+       <li> আপনার সার্ভিস হবে সর্বাধিক নিরাপদ । কেননা এখানে থার্ড পারসন বা মিডেল ম্যান ছাড়াই আপনার চাহিদা, ধরন ও ফেন্টাসি অনুযায়ী ৫০০+ প্রোফেশনাল , নন প্রোফেশনাল এন্টারটেইনার দের সাথে সরাসরি কথা বলে আপনার  সার্ভিস নিশ্চিত করতে পারবেন । </li><br>
+       <li> আপনার নিজস্ব এলাকার বা এরিয়ার মধ্যে সার্চ দিয়ে নিজে নিজেই এন্টারটেইনার খুঁজে নিতে পারবেন আমাদের এই প্লাটফর্ম ব্যবহার করেই ।</li> <br>
+       <li> যারা বিভিন্ন সময় বিভিন্ন জায়গায় প্রতারিত হয়েছেন তাদের জন্য ভালো লাগার বিষয় হচ্ছে আমাদের সার্ভিস এ মেম্বারশিপ ব্যতীত এডভান্স কোনো পেমেন্ট দিতে হয় না।</li><br>
+           <li>শট প্রতি, ঘণ্টা প্রতি ও নাইট সার্ভিস রেট এর পাশাপাশি লিভ টুগেদার ও টুর সার্ভিস এর রেট অনুযায়ী চার্ট দেখে সুলভ মূল্যেই আপনার পারফেক্ট সঙ্গী নিজেই  খুঁজে নিতে পারবেন । </li><br>
+       <li> ঢাকা, চট্টগ্রাম, সিলেট, রাজশাহী ও নারায়ণগঞ্জে আমাদের এই পর্যন্ত ৭ টি ইনকল সার্ভিস পয়েন্ট রয়েছে ।যেখানে আপনি 2 স্টার, 3 স্টার , 4 স্টার হোটেল রুম পাবেন । আমাদের সার্ভিস পয়েন্টে সরাসরি এসেও যেমন সার্ভিস নিতে পারবেন তেমনি আপনার লোকেশনে এন্টার্টেইনার নিতে পারবেন ।</li><br>
+       <li> আমাদের সার্ভিস ২৪ ঘন্টাই উন্মুক্ত !</li> <br>
+        <li>আমাদের রয়েছে  সিস্টেম । যেখানে আমাদের মেম্বারগণ তাদের সার্ভিস অভিজ্ঞতা য়ের মাধ্যমে শেয়ার করে থেকে । </li><br>
+       <li> আমাদের রয়েছে ২৪/৭ সাপোর্ট । আপনার যেকোনো অভিযোগ, পরামর্শ, জিজ্ঞাসা কিংবা প্রশ্ন থাকলে নিঃ                সংকোচে সাপোর্ট সুবিধা পাবেন ।</li><br>
+    </p>
+    <a href="real-service.html">সার্ভিস নেবার প্রসেস</a>
+</div>
+
+<div id="safety" class="service-description">
+    <p><b>আমাদের সার্ভিস সিকিউরিটি ও প্রাইভেসি: </b>
+
+        <li>আমাদের সার্ভিস প্রোভাইড এর ক্ষেত্রে সবচেয়ে বেশি প্রাধান্য থাকে প্রত্যেক মেম্বারদের সিকিউরিটি ও প্রাইভেসি নিশ্চিত করা ।</li>
+        <li> সিকিউরিটি বজায় রাখতে আমাদের সকল কার্যক্রম প্রাইভেটলি হয়ে থাকে এমনকি আমাদের সার্ভিস পয়েন্ট এর ডিটেইলস এড্রেস আমাদের মেম্বারগণই শুধুমাত্র জানতে পারে।</li>
         
-        <div class="cube-container">
-            <div class="cube" onclick="toggleDescription('serviceDetails', this)">
-                <img src="service3.svg" alt="Service Logo"><br>
-                      সার্ভিস বিস্তারিত
-            </div>
-            <div class="cube" onclick="toggleDescription('safety', this)">
-                <img src="security.svg" alt="Safety Logo"><br><br><br>
-            সিকিউরিটি ও প্রাইভেসি
-            </div>
-            <div class="cube" onclick="toggleDescription('area', this)">
-                <img src="location.svg" alt="Area Logo"><br>
-                সার্ভিস পয়েন্ট
-            </div>
-            <div class="cube" onclick="toggleDescription('ask', this)">
-                <img src="ask.svg" alt="Safety Logo"><br><br><br>
-             সাধারণ জিজ্ঞাসাবলি
-            </div>
-            <div class="cube" onclick="toggleDescription('reviews', this)">
-                <img src="review.svg" alt="Reviews Logo"><br><br><br>
-                সার্ভিস রিভিউ
-            </div>
-        </div>
+        <li> প্রত্যেক এন্টার্টেনার/মডেল এর তথ্য ও পাবলিক করা হয় না । শুধুমাত্র আমাদের মেম্বারগন এন্টার্টেইনার লিস্ট দেখতে পারে।</li>
         
-        <div id="serviceDetails" class="service-description">
-
-            <p>
-               <b>আমাদের সার্ভিস বিস্তারিত :</b>  <br>
-               <li>আমরাই বাংলাদেশের প্রথম অনলাইন ও অফলাইন ভিত্তিক অফিসিয়ালি দেশব্যাপী রিয়েল সার্ভিস, ক্যাম সার্ভিস, লিভ টুগেদার পার্টনার, মেক আউট পার্টনার প্রোভাইড করে থাকি ।</li>  <br>
-                <li>আমাদের সারা দেশব্যাপী এজেন্ট রয়েছে যারা প্রতিনিয়ত আপনার সার্ভিস কে সহজ থেকে সহজতর করতে সকল রকম ব্যবস্থা করে যাচ্ছে । </li><br>
-               <li> আপনার সার্ভিস হবে সর্বাধিক নিরাপদ । কেননা এখানে থার্ড পারসন বা মিডেল ম্যান ছাড়াই আপনার চাহিদা, ধরন ও ফেন্টাসি অনুযায়ী ৫০০+ প্রোফেশনাল , নন প্রোফেশনাল এন্টারটেইনার দের সাথে সরাসরি কথা বলে আপনার  সার্ভিস নিশ্চিত করতে পারবেন । </li><br>
-               <li> আপনার নিজস্ব এলাকার বা এরিয়ার মধ্যে সার্চ দিয়ে নিজে নিজেই এন্টারটেইনার খুঁজে নিতে পারবেন আমাদের এই প্লাটফর্ম ব্যবহার করেই ।</li> <br>
-               <li> যারা বিভিন্ন সময় বিভিন্ন জায়গায় প্রতারিত হয়েছেন তাদের জন্য ভালো লাগার বিষয় হচ্ছে আমাদের সার্ভিস এ মেম্বারশিপ ব্যতীত এডভান্স কোনো পেমেন্ট দিতে হয় না।</li><br>
-                   <li>শট প্রতি, ঘণ্টা প্রতি ও নাইট সার্ভিস রেট এর পাশাপাশি লিভ টুগেদার ও টুর সার্ভিস এর রেট অনুযায়ী চার্ট দেখে সুলভ মূল্যেই আপনার পারফেক্ট সঙ্গী নিজেই  খুঁজে নিতে পারবেন । </li><br>
-               <li> ঢাকা, চট্টগ্রাম, সিলেট, রাজশাহী ও নারায়ণগঞ্জে আমাদের এই পর্যন্ত ৭ টি ইনকল সার্ভিস পয়েন্ট রয়েছে ।যেখানে আপনি 2 স্টার, 3 স্টার , 4 স্টার হোটেল রুম পাবেন । আমাদের সার্ভিস পয়েন্টে সরাসরি এসেও যেমন সার্ভিস নিতে পারবেন তেমনি আপনার লোকেশনে এন্টার্টেইনার নিতে পারবেন ।</li><br>
-               <li> আমাদের সার্ভিস ২৪ ঘন্টাই উন্মুক্ত !</li> <br>
-                <li>আমাদের রয়েছে রিভিউ সিস্টেম । যেখানে আমাদের মেম্বারগণ তাদের সার্ভিস অভিজ্ঞতা রিভিউয়ের মাধ্যমে শেয়ার করে থেকে । </li><br>
-               <li> আমাদের রয়েছে ২৪/৭ সাপোর্ট । আপনার যেকোনো অভিযোগ, পরামর্শ, জিজ্ঞাসা কিংবা প্রশ্ন থাকলে নিঃসংকোচে সাপোর্ট সুবিধা পাবেন ।</li><br</p><br>
-                <a href="real-service.html">সার্ভিস নেবার প্রসেস</a>
-            </div>
+        <li> সিকিউরিটি ১০০% নিশ্চিত করতে আমাদের রয়েছে অভিজ্ঞ মনিটরিং টিম । </li>
         
-        <div id="safety" class="service-description">
-            <p>Your safety is our priority. We implement stringent security measures to ensure a safe and secure experience for all our clients.</p>
-        </div>
+        <li>পুলিশি ঝামেলা সহ এ জাতীয় সকল ঝামেলা মুক্ত সার্ভিস গ্যারান্টি ।</li>
+        
+        <li>টুর সার্ভিস/ লিভ টুগেদার এর জন্য আমরা ফ্রী তেই আমাদের মেম্বার দের ভেলিড ডকুমেন্টস প্রোভাইড করি.. নিজ স্ত্রী পরিচয় ভেরিফাই কনফার্ম </li>
+        <li>যেকোনো সমস্যায় আমাদের সাপোর্ট টিম ২৪/৭ যেকোনো মুহূর্তে আপনার সাপোর্ট দিতে প্রস্তুত।</li></p>
+</div>
 
-        <div id="area" class="service-description">
-            <p>Our services are available in multiple locations, ensuring accessibility for all clients. Check our website for specific areas covered.</p>
-        </div>
-        <div id="ask" class="service-description">
-            <p> আপনাদের কিছু প্রশ্ন ও উত্তর</p>
+<div id="area" class="service-description">
+    <p> <h3>আমাদের সকল ইনকল সার্ভিস লোকেশন :</h3>
 
-        <div id="reviews" class="service-description">
-            <div class="review-container">
-                <div class="review">
-                    <strong>John Doe:</strong>
-                    <p>Excellent service! Highly recommend to everyone.</p>
-                </div>
-                <div class="review">
-                    <strong>Jane Smith:</strong>
-                    <p>Professional and reliable, had a great experience.</p>
-                </div>
-                <div class="review">
-                    <strong>Ali Khan:</strong>
-                    <p>They exceeded my expectations. Will definitely use again.</p>
-                </div>
-            </div>
-            <div class="membership-code-input">
-                <input type="text" id="membershipCode" placeholder="Enter Membership Code" required>
-                <button class="verify-code" onclick="verifyMembershipCode()">Verify Code</button>
-            </div>
-            <p class="service-requirement">To write reviews, you must have received our service first.</p>
-            <div class="review-input">
-                <input type="text" id="reviewerName" placeholder="Your Name" required>
-                <textarea id="newReview" placeholder="Write your review here..." required></textarea>
-                <button class="submit-review" onclick="submitReview()">Submit Review</button>
-            </div>
-            <button class="contact-button" onclick="location.href='contact.html'">Go to Contact Page</button>
-        </div>
-    </section>
+        <li>আমাদের সর্বমোট ৭ টি ইনকল সার্ভিস পয়েন্ট রয়েছে ।</li>
+        <li><b>ঢাকা:</b> মিরপুর ১[হেড অফিস, ৬ রুম]<br>
+        উত্তরা সেক্টর 6[৪ রুম লাজারিয়াস]</li>
+        <li><b>চট্টগ্রাম:</b>হালিশহর[৪ রুম]<br>
+        নাসিরাবাদ[৫ রুম]</li>
+        <li><b>নারায়ণগঞ্জ</b> চাষাড়া [6 রুম ফ্ল্যাট বাসা]</li>
+        <li><b>গাজীপুর:</b> গাজীপুর চৌরাস্তা[৬ রুম]</li>
+        <li><b>রাজশাহী:</b> নিউ মার্কেট রোড [৫রুম]</li>
+        
+        <li>নতুন সার্ভিস পয়েন্ট এর কাজ চলমান </li></p>
+</div>
 
-    <footer>
-        <p>&copy; 2024 Maimuna Zaman Agency. All rights reserved.</p>
-    </footer>
+<div id="reviews" class="service-description">
+    <div class="review-container">
+       
+        
+    </div>
+    <div class="membership-code-input">
+        <input type="text" id="membershipCode" placeholder="Enter Membership Code" required>
+        <button class="verify-code" onclick="verifyMembershipCode()">Verify Code</button>
+    </div>
+    <p class="service-requirement">To write reviews, you must have received our service first.</p>
+    <div class="review-input">
+        <input type="text" id="reviewerName" placeholder="Your Name" required>
+        <textarea id="newReview" placeholder="Write your review here..." required></textarea>
+        <button class="submit-review" onclick="submitReview()">Submit Review</button>
+    </div>
+    <button class="contact-button" onclick="location.href='membership.html'">Go to Contact Page</button>
+</div>
+</section>
 
-    <!-- Telegram Icon with Text -->
-    <a href="https://t.me/YourTelegramChannel" target="_blank" class="telegram-container">
-        <div class="telegram-icon"></div>
-        <span class="telegram-text">Join Now</span>
-    </a>
+<footer>
+<p>&copy; 2024 Maimuna Zaman Agency. All rights reserved.</p>
+</footer>
 
-    <script>
-        function toggleDescription(sectionId, clickedCube) {
-            const cubes = document.querySelectorAll('.cube');
-            const descriptions = document.querySelectorAll('.service-description');
+<!-- Telegram Icon with Text -->
+<a href="https://t.me/zmaimuna" target="_blank" class="telegram-container">
+<div class="telegram-icon"></div>
+<span class="telegram-text">Join Now</span>
+</a>
 
-            // Hide all descriptions
-            descriptions.forEach(desc => {
-                desc.style.display = 'none';
-                desc.classList.remove('show');
-            });
+<script>
+function toggleDescription(sectionId, clickedCube) {
+    const cubes = document.querySelectorAll('.cube');
+    const descriptions = document.querySelectorAll('.service-description');
 
-            // Remove active class from all cubes
-            cubes.forEach(cube => {
-                cube.classList.remove('active-cube');
-                cube.style.order = 1; // Reset order
-            });
+    // Hide all descriptions
+    descriptions.forEach(desc => {
+        desc.style.display = 'none';
+        desc.classList.remove('show');
+    });
 
-            // Set clicked cube as active
-            clickedCube.classList.add('active-cube');
-            clickedCube.style.order = 0; // Bring to top
+    // Remove active class from all cubes
+    cubes.forEach(cube => {
+        cube.classList.remove('active-cube');
+        cube.style.order = 1; // Reset order
+    });
 
-            // Show the description for the clicked cube
-            const description = document.getElementById(sectionId);
-            description.style.display = 'block';
-            setTimeout(() => {
-                description.classList.add('show'); // Add show class for fade-in
-            }, 10); // Short delay to allow display to take effect
+    // Set clicked cube as active
+    clickedCube.classList.add('active-cube');
+    clickedCube.style.order = 0; // Bring to top
 
-            // Scroll to the description smoothly
-            description.scrollIntoView({ behavior: 'smooth' });
-        }
+    // Show the description for the clicked cube
+    const description = document.getElementById(sectionId);
+    description.style.display = 'block';
+    setTimeout(() => {
+        description.classList.add('show'); // Add show class for fade-in
+    }, 10); // Short delay to allow display to take effect
 
-        function verifyMembershipCode() {
-            const memberCodeInput = document.getElementById('membershipCode').value;
-            const validCode = '88004';
-            if (memberCodeInput === validCode) {
-                document.querySelector('.review-input').style.display = 'block'; // Show the review input
-                alert('Membership code verified. You can now write your review!');
-            } else {
-                alert('Invalid membership code. Please try again.');
-            }
-        }
+    // Scroll to the description smoothly
+    description.scrollIntoView({ behavior: 'smooth' });
+}
 
-        function submitReview() {
-            const reviewerName = document.getElementById('reviewerName').value;
-            const reviewText = document.getElementById('newReview').value;
+function verifyMembershipCode() {
+    const memberCodeInput = document.getElementById('membershipCode').value;
+    const validCode = '88004';
+    if (memberCodeInput === validCode) {
+        document.querySelector('.review-input').style.display = 'block'; // Show the review input
+        alert('Membership code verified. You can now write your review!');
+    } else {
+        alert('Invalid membership code. Please try again.');
+    }
+}
 
-            if (reviewerName.trim() === '' || reviewText.trim() === '') {
-                alert('Please provide your name and write a review before submitting.');
-                return;
-            }
+function submitReview() {
+    const reviewerName = document.getElementById('reviewerName').value;
+    const reviewText = document.getElementById('newReview').value;
 
-            const reviewContainer = document.querySelector('.review-container');
-            const newReview = document.createElement('div');
-            newReview.className = 'review';
-            newReview.innerHTML = '<strong>' + reviewerName + ':</strong><p>' + reviewText + '</p>';
-            reviewContainer.appendChild(newReview);
+    if (reviewerName.trim() === '' || reviewText.trim() === '') {
+        alert('Please provide your name and write a review before submitting.');
+        return;
+    }
 
-            document.getElementById('newReview').value = ''; // Clear the textarea
-            document.getElementById('reviewerName').value = ''; // Clear the name input
+    const reviewContainer = document.querySelector('.review-container');
+    const newReview = document.createElement('div');
+    newReview.className = 'review';
+    newReview.innerHTML = '<strong>' + reviewerName + ':</strong><p>' + reviewText + '</p>';
+    reviewContainer.appendChild(newReview);
+
+   document.getElementById('reviewerName').value = ''; // Clear the name input
+            document.getElementById('newReview').value = ''; // Clear the review input
+            alert('Thank you for your review!');
         }
     </script>
 </body>
