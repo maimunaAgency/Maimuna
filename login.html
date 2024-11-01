@@ -3,136 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maimuna Zaman Agency - User Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Maimuna Zaman Agency - Login/Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-image: url('images.jpeg'); /* Replace with your background image */
-            background-size: cover;
-            background-position: center;
-            color: #f20909;
-        }
-        .login-container {
-            max-width: 400px;
-            margin: 100px auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #de0d02, #47799bbe);
+            margin: 0;
             padding: 20px;
-            background: rgba(12, 7, 8, 0.7);
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(205, 200, 200, 0.3);
+            color: #333;
         }
-        .alert {
-            display: none; /* Initially hidden */
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            color: white;
         }
-        .logo {
+
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
             text-align: center;
             margin-bottom: 20px;
+            color: #ec1105;
         }
-        h2 {
-            font-family: 'Arial Black', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #c81205;
+            border-radius: 5px;
+            transition: border 0.3s ease;
         }
-        .btn-primary {
-            background-color: #cf222b;
+
+        input:focus {
+            border-color: #e31d03;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #dc1701;
+            color: rgb(254, 254, 254);
             border: none;
-            transition: background-color 0.3s;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
-        .btn-primary:hover {
-            background-color: #610606;
+
+        button:hover {
+            background: #ea7171;
+            transform: translateY(-2px);
         }
-        .btn-secondary {
-            background-color: #f31228;
+
+        .toggle-button {
+            background: none;
+            color: #e60202;
             border: none;
-            transition: background-color 0.3s;
-        }
-        .btn-secondary:hover {
-            background-color: #61070f;
-        }
-        b{
-            color: aliceblue;
+            cursor: pointer;
+            font-size: 15px;
             text-align: center;
-            margin-top: 10px ;
+            margin-top: 10px;
+            display: block;
+            transition: color 0.3s ease;
+        }
 
+        .toggle-button:hover {
+            color: #e10303;
+        }
 
+        .home-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+            font-size: 24px;
+            color: #ef0404;
+        }
+
+        .home-button:hover {
+            transform: scale(1.1);
+            color: #333;
+        }
+
+        /* Alert Styles */
+        .alert {
+            display: none;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            animation: fadeIn 0.5s;
+            position: relative;
+        }
+
+        .alert.success {
+            background-color: #4CAF50;
+        }
+
+        .alert.error {
+            background-color: #f44336;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .alert .closebtn {
+            position: absolute ;
+            top: 5px;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-
-    <b>  <br>আপনার মেম্বারশিপ কার্ড ও আইডি সংরক্ষণ করতে রেজিস্ট্রেশন বাধ্যতামূলক </b>
-
-<div class="login-container">
-    <div class="logo">
-        <h2>Maimuna Zaman Agency</h2>
+    <div class="header">
+        <h1>Maimuna Zaman Agency</h1>
+        <p>মেম্বারশিপ আইডি সংরক্ষণ করতে রেজিস্ট্রেশন বাধ্যতামূলক</p>
     </div>
-    <form id="loginForm">
-        <div class="form-group">
-            <label for="username">Name</label>
-            <input type="text" id="username" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="pin">Pin Code</label>
-            <input type="password" id="pin" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
-    </form>
-    
-    <hr>
-    
-    <h5 class="text-center"><u>REGISTER NOW</u></h5>
-    <div class="form-group">
-        <label for="setUsername">Set Name</label>
-        <input type="text" id="setUsername" class="form-control" required>
+    <div class="form-container" id="formContainer">
+        <form id="registrationForm">
+            <h2>Register</h2>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+            <button type="button" class="toggle-button" id="showLogin">Already have an account? Login</button>
+        </form>
+        <form id="loginForm" style="display: none;">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <button type="button" class="toggle-button" id="showRegister">Don't have an account? Register</button>
+        </form>
+        <button class="home-button" id="homeButton"><i class="fas fa-home"></i></button>
+        <div id="alertContainer"></div>
     </div>
-    <div class="form-group">
-        <label for="setPin">Set Pin Code</label>
-        <input type="password" id="setPin" class="form-control" required>
-    </div>
-    <button id="setCredentials" class="btn btn-secondary btn-block">Complete Registration</button>
-    
-    <div class="alert alert-success mt-3" id="successAlert">Credentials set successfully!</div>
-    <div class="alert alert-danger mt-3" id="errorAlert">Invalid name or pin code. Please try again.</div>
-</div>
 
-<script>
-    // Function to set user credentials in local storage
-    document.getElementById('setCredentials').addEventListener('click', function() {
-        const setUsername = document.getElementById('setUsername').value;
-        const setPin = document.getElementById('setPin').value;
+    <script>
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
 
-        if (setUsername && setPin) {
-            localStorage.setItem('username', setUsername);
-            localStorage.setItem('pin', setPin);
-            document.getElementById('successAlert').style.display = 'block'; // Show success alert
-            document.getElementById('errorAlert').style.display = 'none'; // Hide error alert
-            document.getElementById('setUsername').value = '';
-            document.getElementById('setPin').value = '';
+            alertDiv.className = `alert ${type}`;
+            alertDiv.innerHTML = `${message} <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>`;
+            alertContainer.appendChild(alertDiv);
+
+            // Show the alert with animation
+            alertDiv.style.display = 'block';
+
+            // Automatically hide the alert after 3 seconds
+            setTimeout(() => {
+                alertDiv.style.display = 'none';
+                alertContainer.removeChild(alertDiv);
+            }, 3000);
         }
-    });
 
-    // Function to handle login form submission
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const pin = document.getElementById('pin').value;
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-        const storedUsername = localStorage.getItem('username');
-        const storedPin = localStorage.getItem('pin');
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
 
-        if (username === storedUsername && pin === storedPin) {
-            // Redirect to membership selection page
-            window.location.href = "welcome.html"; // Change this to your membership page URL
-        } else {
-            document.getElementById('errorAlert').style.display = 'block'; // Show error alert
-            document.getElementById('successAlert').style.display = 'none'; // Hide success alert
-        }
+            // Redirect to welcome.html after successful registration
+            window.location.href = 'welcome.html';
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            if (loginUsername === storedUsername && loginPassword === storedPassword) {
+                showAlert('Login successful!', 'success');
+                // Redirect to the home page (can change to the desired URL)
+                window.location.href = 'welcome.html';
+            } else {
+                showAlert('Invalid username or password.', 'error');
+            }
+        });
+
+        document.getElementById('showLogin').addEventListener('click', function() {
+            document.getElementById('registrationForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        });
+
+        document.getElementById('showRegister').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registrationForm').style.display = 'block';
+        });
+
+        document.getElementById('homeButton').addEventListener('click', function() {
+            // Redirect to the home page
+            window.location.href = 'index.html'; // Change 'index.html' to your home page URL
+        });
+
         function handleLogin(event) {
         event.preventDefault(); // Prevent form submission
-        const username = document.getElementById('username').value;
+        const username = document.getElementById('loginUsername').value;
         // Redirect to membership page with username as a parameter
         window.location.href = `membership.html?name=${encodeURIComponent(username)}`;
     }
-    });
-</script>
-
+    ;
+    </script>
 </body>
 </html>
