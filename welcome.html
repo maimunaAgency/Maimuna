@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Maimuna Zaman Agency</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -14,8 +15,8 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            background: linear-gradient(135deg, #4a90e2, #f39c12); /* Gradient background */
-            animation: gradient 15s ease infinite; /* Gradient animation */
+            background: linear-gradient(135deg, #0202dcf0, #e7e8ec);
+            animation: gradient 15s ease infinite;
         }
 
         @keyframes gradient {
@@ -26,13 +27,13 @@
 
         .welcome-container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgb(247, 247, 247);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             transform: translateY(50px);
             opacity: 0;
-            animation: slideIn 0.8s forwards; /* Slide-in animation */
+            animation: slideIn 0.8s forwards;
         }
 
         @keyframes slideIn {
@@ -46,16 +47,36 @@
             }
         }
 
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-buttons .btn {
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .header-buttons .btn:hover {
+            background-color: #fb0421;
+            transform: translateY(-2px);
+        }
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #e60e0e;
+            color: #ee0202;
             font-family: 'Arial Black', sans-serif;
         }
 
         p {
             font-size: 1.2rem;
-            color: #555;
+            color: #575656;
         }
 
         .btn-primary {
@@ -67,9 +88,85 @@
         .btn-primary:hover {
             background-color: #357ab8;
         }
+
+        .modal-header, .modal-footer {
+            border: none;
+        }
+
+        #alertMessage {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .payment-method {
+            display: fle;
+            justify-content: space-between;
+            margin-top: 15px;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.5s;
+            align-items: center;
+        }
+
+        .payment-method img {
+            width: 90px;
+            height: 90px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .payment-method:hover img {
+            transform: scale(1.1); /* Scale up the logo on hover */
+            opacity: 0.9; /* Slightly fade the logo */
+        }
+
+        .loading {
+            display: none;
+            color: rgb(1, 185, 7);
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 15px;
+        }
+
+        .error-message {
+            font-size: 20px;
+            display: none;
+            color: red;
+            margin-top: 10px;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .confirmationMessage{
+            font-size: 35px;
+            color: red;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
+
+<div id="alertMessage" class="alert alert-success" role="alert">
+    Profile saved successfully!
+</div>
+
+<div class="header-buttons">
+    <button class="btn btn-light" data-toggle="modal" data-target="#entertainerModal">
+        <i class="fas fa-users"></i> এন্টারটেইনার <br>তালিকা
+    </button>
+    <button class="btn btn-light" data-toggle="modal" data-target="#profileModal">
+        <i class="fas fa-user"></i> প্রোফাইল
+    </button>
+    <button class="btn btn-light" data-toggle="modal" data-target="#balanceModal">
+        <i class="fas fa-money-bill-wave"></i> ব্যাল্যান্স্‌
+    </button>
+</div>
 
 <div class="welcome-container">
     <h1>Welcome, <span id="userName"></span>!</h1>
@@ -77,6 +174,133 @@
     <a href="membership.html" class="btn btn-primary">মেম্বারশিপ নিন</a>
 </div>
 
+<!-- Entertainer Modal -->
+<div class="modal fade" id="entertainerModal" tabindex="-1" role="dialog" aria-labelledby="entertainerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="entertainerModalLabel">Entertainer List</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>এন্টারটেনার পূর্ণাঙ্গ তালিকা ও ছবিসহ সকল ডিটেইলস দেখতে ও আপনার সার্ভিস মুহুর্তেই কনফার্ম করতে অবশ্যই আমাদের মেম্বারশিপ নিতে হবে।</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="membership.html" class="btn btn-primary">মেম্বারশিপ নিন</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileModalLabel">Profile Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Phone Number</label>
+                        <input type="text" class="form-control" id="number" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
+                    </div>
+                </form>
+                <div id="displayProfileInfo" style="display:none;">
+                    <h5>Your Profile Information:</h5>
+                    <p><strong>Name:</strong> <span id="displayName"></span></p>
+                    <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+                    <p><strong>Phone Number:</strong> <span id="displayNumber"></span></p>
+                    <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveProfileBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Balance Modal -->
+<div class="modal fade" id="balanceModal" tabindex="-1" role="dialog" aria-labelledby="balanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="balanceModalLabel">Check Your Balance</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your current balance is: <strong id="userBalance">0.00 taka</strong></p>
+                <div id="transactionButtons" style="margin-top: 15px;">
+                    <button class="btn btn-success" id="depositBtn">Deposit</button>
+                    <button class="btn btn-danger" id="withdrawBtn">Withdraw</button>
+                </div>
+                <div id="transactionForm" style="display:none; margin-top: 15px;">
+                    <input type="number" id="transactionAmount" placeholder="Enter amount" class="form-control">
+                    <button class="btn btn-primary" id="confirmTransactionBtn">Confirm</button>
+                    <button class="btn btn-secondary" id="cancelTransactionBtn">Cancel</button>
+                </div>
+
+                <!-- Error Message for Insufficient Funds -->
+                <div id="errorMessage" class="error-message">You do not have enough funds to withdraw this amount.</div>
+
+                <!-- Payment Method Selection --><br>
+                
+                <div id="paymentMethods" style="display:none; margin-top: 10px;">
+                    <div class="payment-method" id="bkashMethod"> select your payment method:<br>
+                        <img src="bkash.svg" alt="bKash Logo">
+                        <span>bKash</span>
+                    </div> <br>
+                    <div class="payment-method" id="nagadMethod">
+                        <img src="nagad.svg" alt="Nagad Logo">
+                        <span>Nagad</span>
+                    </div>
+                </div>
+
+                <!-- Sending Number and Transaction Input -->
+                <div id="sendingNumber" style="display:none; margin-top: 15px;">
+                    <p>Send money to: <strong id="paymentNumber">+8801234567890</strong>
+                        <button class="btn btn-outline-secondary btn-sm" id="copyNumberBtn" style="margin-left: 10px;">
+                            Copy
+                        </button><br>
+                    </p>
+                    <input type="text" id="transactionNumber" placeholder="Enter transaction number" class="form-control" /><br>
+                    <button class="btn btn-success" id="completeDepositBtn">Complete Deposit</button>
+                    <div class="loading" id="loadingMessage">Loading...</div>
+                    <div class="confirmationMessage" id="confirmationMessage" style="display:none;">Wrong transaction number or payment has not received</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     // Fade in effect for the body
     document.body.style.opacity = 1;
@@ -84,6 +308,147 @@
     // Retrieve the username from local storage
     const storedUsername = localStorage.getItem('username');
     document.getElementById('userName').textContent = storedUsername || 'User';
+
+    // Initialize balance to 0.00
+    let userBalance = 0.00; // The balance will always start at 0.00
+
+    // Show balance and transaction options when balance modal is opened
+    $('#balanceModal').on('show.bs.modal', function () {
+        document.getElementById('userBalance').textContent = `$${userBalance.toFixed(2)}`; // Reset balance to 0.00
+        document.getElementById('transactionButtons').style.display = 'block'; // Show deposit and withdraw buttons
+        document.getElementById('transactionForm').style.display = 'none'; // Hide transaction form initially
+        document.getElementById('paymentMethods').style.display = 'none'; // Hide payment methods initially
+        document.getElementById('sendingNumber').style.display = 'none'; // Hide sending number initially
+        document.getElementById('loadingMessage').style.display = 'none'; // Hide loading message
+        document.getElementById('confirmationMessage').style.display = 'none'; // Hide confirmation message
+        document.getElementById('errorMessage').style.display = 'none'; // Hide error message
+    });
+
+    // Deposit button functionality
+    document.getElementById('depositBtn').addEventListener('click', function() {
+        document.getElementById('transactionForm').style.display = 'block'; // Show transaction form
+        document.getElementById('transactionAmount').value = ''; // Reset input
+        document.getElementById('transactionForm').setAttribute('data-transaction-type', 'deposit');
+    });
+
+    // Withdraw button functionality
+    document.getElementById('withdrawBtn').addEventListener('click', function() {
+        document.getElementById('transactionForm').style.display = 'block'; // Show transaction form
+        document.getElementById('transactionAmount').value = ''; // Reset input
+        document.getElementById('transactionForm').setAttribute('data-transaction-type', 'withdraw');
+    });
+
+    // Confirm transaction button functionality
+    document.getElementById('confirmTransactionBtn').addEventListener('click', function() {
+        const amount = parseFloat(document.getElementById('transactionAmount').value);
+        const transactionType = document.getElementById('transactionForm').getAttribute('data-transaction-type');
+
+        // Reset error message
+        document.getElementById('errorMessage').style.display = 'none';
+
+        if (transactionType === 'deposit') {
+            // Do not update the userBalance
+            document.getElementById('paymentMethods').style.display = 'flex'; // Show payment methods
+        } else if (transactionType === 'withdraw') {
+            if (amount > userBalance) {
+                // Show error message if insufficient funds
+                document.getElementById('errorMessage').style.display = 'block';
+            } else {
+                userBalance -= amount;
+            }
+        }
+
+        document.getElementById('userBalance').textContent = `$${userBalance.toFixed(2)}`;
+        document.getElementById('transactionForm').style.display = 'none'; // Hide transaction form
+    });
+
+    // Payment method selection
+    document.getElementById('bkashMethod').addEventListener('click', function() {
+        document.getElementById('nagadMethod').style.display = 'none'; // Hide Nagad method
+        showSendingNumber('01612642955'); // Example sending number for bKash
+    });
+
+    document.getElementById('nagadMethod').addEventListener('click', function() {
+        document.getElementById('bkashMethod').style.display = 'none'; // Hide bKash method
+        showSendingNumber('01767770174'); // Example sending number for Nagad
+    });
+
+    // Show sending number and input for transaction number
+    function showSendingNumber(paymentNumber) {
+        document.getElementById('sendingNumber').style.display = 'block'; // Show sending number section
+        document.getElementById('paymentNumber').textContent = paymentNumber; // Set payment number
+    }
+
+    // Copy payment number functionality
+    document.getElementById('copyNumberBtn').addEventListener('click', function() {
+        const paymentNumber = document.getElementById('paymentNumber').textContent;
+        navigator.clipboard.writeText(paymentNumber).then(() => {
+            alert('Payment number copied to clipboard!');
+        });
+    });
+
+    // Complete deposit button functionality
+    document.getElementById('completeDepositBtn').addEventListener('click', function() {
+        const transactionNumber = document.getElementById('transactionNumber').value;
+
+        if (!transactionNumber) {
+            alert('Please enter your transaction number.');
+            return;
+        }
+
+        document.getElementById('loadingMessage').style.display = 'block'; // Show loading message
+        document.getElementById('loadingMessage').textContent = 'Processing your deposit...';
+
+        setTimeout(() => {
+            document.getElementById('loadingMessage').style.display = 'none'; // Hide loading message
+            document.getElementById('confirmationMessage').style.display = 'block'; // Show confirmation message
+        }, 3000); // Show loading animation for 3 seconds
+    });
+
+    // Cancel transaction button functionality
+    document.getElementById('cancelTransactionBtn').addEventListener('click', function() {
+        document.getElementById('transactionForm').style.display = 'none'; // Hide transaction form
+    });
+
+    // Save profile information
+    document.getElementById('saveProfileBtn').addEventListener('click', function() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const number = document.getElementById('number').value;
+        const address = document.getElementById('address').value;
+
+        // Save to local storage
+        localStorage.setItem('userProfile', JSON.stringify({
+            name: name,
+            email: email,
+            number: number,
+            address: address
+        }));
+
+        // Update the displayed profile information in the modal
+        document.getElementById('displayName').textContent = name;
+        document.getElementById('displayEmail').textContent = email;
+        document.getElementById('displayNumber').textContent = number;
+        document.getElementById('displayAddress').textContent = address;
+        document.getElementById('displayProfileInfo').style.display = 'block'; // Show profile information
+
+        // Show confirmation alert with animation
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.style.display = 'block';
+        alertMessage.style.opacity = 1;
+
+        // Fade out the alert after 3 seconds
+        setTimeout(() => {
+            alertMessage.style.opacity = 0;
+            setTimeout(() => {
+                alertMessage.style.display = 'none';
+            }, 500); // Wait for the fade-out transition to finish
+        }, 3000);
+
+        // Close modal and reset form
+        $('#profileModal').modal('hide');
+        document.getElementById('profileForm').reset();
+    });
 </script>
 
 </body>
